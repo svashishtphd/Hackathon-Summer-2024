@@ -61,7 +61,7 @@ If you accidentally make a commit that you dont want, you can use the following 
 
 * `git log` will show you a list of your commits along with each commit's unique ID. Copy the commit ID of the commit you want to revert back to.
 * `git revert <ID>` will revert everything back to the way the directory was at that commit.
-
+***
 
 ### Branches
 Each person should have their own branch for each feature they are working on. When you are done, you will **merge** your branch with **main** to combine your features with everyone elses.
@@ -71,4 +71,29 @@ Each person should have their own branch for each feature they are working on. W
 * `git checkout -b <branch name>` allows you to create a new branch
 * `git branch switch <branch name>` allows you to switch to a new branch
 * `git push --set-upstream origin <name>` specifies the upstream (remote) repository for the branch you're working on. This only needs to be done when first creating a new branch, in this case just use **main** as the origin name
+***
+
+### Adding an SSH key to your account
+- Install GitHub CLI: `sudo apt install gh`
+- Authorize login, enter the command: `gh auth login`
+- When prompted for your preferred protocol for Git operations, select `HTTPS`.
+- When asked if you would like to authenticate to Git with your GitHub credentials, enter `Y`.
+- Enter your GitHub key
+
+- **To create an SSH key:**
+	- Enter the following into your command line
+	  `ssh-keygen -t ed25519 -C [your_email@example.com]`  
+	- When prompted to "Enter a file in which to save the key", press **Enter** to accept the default location
+		- Default location will be in `.ssh/id_ed25519.pub`
+			- Make sure you open the `.pub` file
+			- Copy the contents of the entire file as the key when adding it to GitHub
+	
+- **Add a key to your account**:
+	1. Go to GitHub
+	2. Click on your profile icon
+	3. Settings
+	4. SSH and GPG keys
+	5. Add new SSH key
+	6. Paste in the SSH key that you copied earlier
+
 
