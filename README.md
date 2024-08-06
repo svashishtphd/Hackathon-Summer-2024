@@ -1,37 +1,74 @@
-# University of Rochester Biomedical Data Science Hackathon Summer 2024
-Welcome to the landing page for the hackathon. All important information will appear here when the competition starts. In the meantime, please register and watch for further instructions. All teams scoring better than random will receive a participation prize. 1st and 2nd place winning teams in each division will get a cash prize (see below).
+# BASE Team - Biomedical Data Science Hackathon 2024
 
-# Logistics
+## General Information
+* Predictions must be written to the `prediction/prediction.csv` file to be scored.
 
-- Registration is now open and will close 8/5 at 5pm.  Teams can consist of up to 4 people. Complete registration details on this [google form](https://forms.gle/xVYZeegK4hSVtm3F8). 
-0.   Each team must have a github handle associated with it in order to participate.  Make sure you edit your registration or email the organizers to provide this, if you haven't yet.
-1.   You may add team members up
-to noon EDT on 8/10 by editing your response to the google form or emailing the organizers.
-2.  Teams of entirely undergraduates will be in the undergraduate
-division, else they will be in the open division.
-3.  Predictions on test data set are submitted by pushing to
-    github.  A repository with the name `Hackathon-Summer-2024`,
-    owned by the team captain, will
-    be queried for a file named [prediction/prediction.csv](prediction/prediction.csv).  **If the team captain forks this
-    repository and writes predictions there everything should work
-    (as long as the predictions are formatted correctly).**
-2.  Predictions will be scored at least once daily, starting 8/13, with
-    scores posted by 3 PM.  At
-    the organizers' option, predictions may be scored more frequently
-    than this.
-2.  General questions/problems can be directed to [issues](https://github.com/Rochester-Biomedical-DS/Hackathon-Summer-2024/issues) page.  We encourage other hackathon participants to respond to issues.
-3.  The scoreboard will be located
-    [here](Leaderboard.Hackathon.2024.md).
-   
-    We  cannot provide support
-    beyond the diagnostic output included on the scoreboard if an error is
-    encountered in scoring your predictions.
-5.  Interim scoring may employ forms of randomization (e.g. bootstrapping) from the test data set.  The final scores will use all the data and not be randomized.
-4.  Competition runs through 2:59 PM EDT 17-August-2023.  The predictions each team has committed to their repository at that time will be used to determine their final score.
+* The scoreboard will be located [here](https://github.com/Rochester-Biomedical-DS/Hackathon-Summer-2024/Leaderboard.Hackathon.2024.md) once the competition begins.
+
+* The competition runs through 2:59 PM EDT 17-August-2023. The predictions each team has committed to their repository at that time will be used to determine their final score.
+
+# Working with Git and GitHub
+Git is a method for **version control**, which allows you to record and see all changes that you and your team make over time to your code. All changes over the lifetime of the project are recorded every time you save your code, allowing anybody to go back to previous versions. GitHub is a hosting website that allows users to store their Git repositories remotely and work with other people on projects. 
+
+There are two main locations for projects to be stored: **remotely** or **locally**. The version of the project available on GitHub is the **remotely** stored version of the project, while the copies on people's computers are the **locally** stored version of the projects. 
+
+GitHub users can **clone** the **remote** version from GitHub to their own computer to create a **local** copy on their computer. Then, they can change and alter the files however they want. When multiple people work on the same file and try to update the **remote** copy on GitHub but have different changes, the files need to be **merged** to select which changes should be kept from both versions. This can get tricky, so its best if people work on files separately.
+
+To work on files separately and only merge all of the changes at the end, Git uses **branches** branches allow for users to work on individual copies of the code where they can make as many changes as they want, then **merge** the changes to the **main** code at the end. This lets you make lots of changes freely and save your progress as you go without worrying about affecting other peoples work. 
+> Note: Before you merge into the main repository, try to clean up your work as much as possible to reduce the work needed to merge the files (remove files that you aren't using anymore, remove output files that can be generated from the code, etc.)
+
+## Getting Started:
+
+### Cloning repositories
+
+To download a repository to your own local computer, first you need to decide where you want to store your projects. I recommend making a folder called `github` where you can keep the local versions of your projects.
+
+Open a terminal and navigate into your `github` folder. 
+
+Use the command `git clone https://github.com/Luminarada80/Hackathon-Summer-2024.git` to create a **local** clone of the GitHub repository. This lets you work on everything locally, and is the main way that people share and distribute code on GitHub.
+
+If you are working with other people and/or are going to be altering the files on GitHub, I recommend making a **branch** once you clone the repository. This will create a copy of the entire repository that you can alter without changing the **main** branch, keeping everything clean for other users. The **main** branch is the one that you see first when you go to someones github repository.
+
+### Saving your progress
+
+> **Important!** Save your progress often, when you are starting out it is easy to lose your progress by accidentally reverting your changes or overwriting your files from the remote repository. Dont include large files, as GitHub repositories have a 50 MB size limit. You can alter your `.gitignore` file to ignore files with certain filename extensions, such as `.csv`. This can help with keeping the size of the repository small. In general, try to just save code and small files to the remote repository, and use other storage methods such as Box or OneDrive to store large data files remotely.
+
+**Staging changes**
+
+Once you have made changes, you need to tell Git that you want to save the changes that you have made. You can see any changes by typing the command `git status` into your command line while in your project directory. **Unstaged changes** are changes that you made, but have not yet specified that you want to save. **Staged changes** are changes that you have made, and will be saved. To stage changes, you use the command `git add <file name>`. This will tell Git that you want to save this file. To stage all changes, use the command `git add .`. 
+
+**Committing changes**
+
+Once you have specified which changes you want to keep, you need to tell Git that you are done and want to save your progress. Use the `git commit -m "<commit message>"` command to commit your changes. 
+> The **commit message** is a message describing which changes you made, so *be as detailed as possible* so that other people can keep track of what each person is working on and what has changed. 
+
+**Pushing changes**
+
+When you are ready to save your **local** changes to the **remote** repository on GitHub, you will `push` your commits.
+
+In general, to save your work, you will use the following commands:
+- `git add .` stage all of your changes
+- `git commit -m "<commit message>"` to commit your staged changes with a message about what you did
+- `git push` to push your saved changes to the remote repository.
+
+**Pulling changes**
+
+If your version of the code is behind, use the `git pull` command to update your **local** code with the **remote** version. This is useful if you are working on the same code across multiple computers or with other poeple to keep your code up to date. 
+
+**Reverting unwanted changes**
+
+If you accidentally make a commit that you dont want, you can use the following commands to go back to an older commit:
+
+* `git log` will show you a list of your commits along with each commit's unique ID. Copy the commit ID of the commit you want to revert back to.
+* `git revert <ID>` will revert everything back to the way the directory was at that commit.
 
 
-   # Prizes
-   
-1.  First place in each division: $300 + $75 x (team size)
-2.  Second place in each division: 0 + $50 x (team size)
-  
+### Branches
+Each person should have their own branch for each feature they are working on. When you are done, you will **merge** your branch with **main** to combine your features with everyone elses.
+
+**Working with branches in the command line**
+* `git branch` will show you a list of the available branches (* denotes the current branch)
+* `git checkout -b <branch name>` allows you to create a new branch
+* `git branch switch <branch name>` allows you to switch to a new branch
+* `git push --set-upstream origin <name>` specifies the upstream (remote) repository for the branch you're working on. This only needs to be done when first creating a new branch, in this case just use **main** as the origin name
+
